@@ -1,12 +1,12 @@
-# Go IP Geolocation CLI Tool
+# WhatIsMyIP: A Go CLI Tool for Fetching Your IP
 
-This tool is a simple command line interface (CLI) application, written in Go, which fetches and displays your current IP and geolocation information.
+WhatIsMyIP is a simple command-line interface (CLI) application written in Go that fetches and displays your current IP and associated details.
 
-## How it Works
+## Overview
 
-The application sends a HTTP GET request to [ip-api.com](http://ip-api.com/json/), a free, non-login IP Geolocation API. The API returns a JSON response with the IP and geolocation details, which the application parses and displays in a human-readable format.
+The application sends a HTTP GET request to [ip-api.com](http://ip-api.com/json/), a free, non-login IP Geolocation API. The API responds with a JSON containing details about the IP, which the application parses and displays in a human-readable format.
 
-The displayed details include the following:
+The application presents the following details:
 
 - IP
 - Country
@@ -17,16 +17,14 @@ The displayed details include the following:
 - Longitude
 - Timezone
 
-## How to Run
+## Prerequisites
 
-To run this application, you will need Go installed on your machine. You can download and install Go from the [official website](https://golang.org/dl/).
+You need Go installed on your machine to run this application. You can download and install Go from the [official website](https://golang.org/dl/).
 
-Once you have Go installed, follow these steps:
+## Getting Started
 
 1. Clone or download the repository to your local machine.
-
 2. Navigate into the project directory.
-
 3. Run the following command to fetch the necessary dependencies:
 
     ```bash
@@ -36,18 +34,33 @@ Once you have Go installed, follow these steps:
 4. After fetching the dependencies, you can run the application with the following command:
 
     ```bash
-    go run ./cmd/main.go
+    go run main.go
     ```
 
-This command will compile and run the application, and you should see the output with your IP and geolocation details printed in the terminal.
+This command compiles and runs the application. You should see an output with your IP and related details printed in the terminal.
 
-## Dependencies
+## Installation
 
-This application uses the following dependencies:
+Starting from Go 1.16, you can install this tool globally using the following command:
 
-- [color](github.com/fatih/color): For printing colorful text in the terminal.
-- [net/http](https://golang.org/pkg/net/http/): To make HTTP requests.
-- [encoding/json](https://golang.org/pkg/encoding/json/): To parse the JSON response from the API.
-- [io/ioutil](https://golang.org/pkg/io/ioutil/): To read the body of the API's HTTP response.
-- [os](https://golang.org/pkg/os/): To interact with the operating system, mainly for printing error messages and exiting the application.
-- [text/tabwriter](https://golang.org/pkg/text/tabwriter/): For aligning the output in a tabular format.
+```bash
+go install github.com/bariiss/whatismyip@latest
+ ```
+
+This command downloads the package from the GitHub repository, compiles it, and moves the resulting binary into the $GOPATH/bin directory. Ensure this directory is in your system's PATH. After installing the tool, you can use it anywhere in your terminal by running:
+
+```bash
+whatismyip
+ ```
+
+```bash
+➜ whatismyip
+IP:         123.45.67.89
+Country:    Narnia
+Region:     Far Far Away
+City:       Emerald City
+ISP:        Wizard of Oz Internet
+Latitude:   12.345600
+Longitude:  98.765400
+Timezone:   Middle/Earth
+```
