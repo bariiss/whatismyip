@@ -24,4 +24,4 @@ To run this application, you will need Go installed on your machine. You can dow
 Once you have Go installed, you can run the application using the following command:
 
 ```bash
-go run main.go
+go run ./cmd/main.go
