@@ -23,7 +23,14 @@ type GeoInfo struct {
 }
 
 func main() {
-	resp, err := http.Get("http://ip-api.com/json/")
+	var ipURL string
+	if len(os.Args) > 1 {
+		ipURL = fmt.Sprintf("http://ip-api.com/json/%s", os.Args[1])
+	} else {
+		ipURL = "http://ip-api.com/json/"
+	}
+
+	resp, err := http.Get(ipURL)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Error fetching IP:", err)
 		os.Exit(1)
